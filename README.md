@@ -41,5 +41,5 @@ $user->balance = typer($dynamicArray)->float('balance', null);
 The package can be installed via composer:
 
 ```
-composer require yzen.dev/plain-to-class
+composer require yzen.dev/typer
 ```
