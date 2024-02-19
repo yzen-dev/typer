@@ -34,7 +34,7 @@ $user->blocked = typer($dynamicArray)->bool('blocked');
 
 If, in the absence of a parameter, you need to specify a default value other than "null", you can simply pass it as the second argument:
 ```php
-$user->balance = typer($dynamicArray)->float('balance', null);
+$user->balance = typer($dynamicArray)->float('balance', 10.0);
 ```
 ## **Installation**
 
