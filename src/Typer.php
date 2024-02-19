@@ -4,7 +4,6 @@ namespace YzendDev\Typer;
 
 class Typer
 {
-
     /**
      * The underlying object.
      *
