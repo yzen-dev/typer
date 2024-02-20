@@ -4,6 +4,7 @@ namespace Tests\Benchmark;
 
 use PHPUnit\Framework\TestCase;
 use Tests\Units\DTO\User;
+use YzendDev\Typer\Typer;
 
 /**
  * Class CheckBench
@@ -18,12 +19,12 @@ class TestBench extends TestCase
     {
         parent::__construct('bench');
     }
-
+    
 
     /**
      * @Revs(10000)
      */
-    public function benchTyper(): void
+    public function benchStaticTyper(): void
     {
         $dynamicArray = [
             'id' => '1',
@@ -33,12 +34,12 @@ class TestBench extends TestCase
         ];
 
         $user = new User();
-        $user->id = typer($dynamicArray)->int('id');
-        $user->email = typer($dynamicArray)->string('email');
-        $user->balance = typer($dynamicArray)->float('balance');
-        $user->blocked = typer($dynamicArray)->bool('blocked');
+        $user->id = Typer::int($dynamicArray, 'id');
+        $user->email = Typer::string($dynamicArray, 'id');
+        $user->balance = Typer::float($dynamicArray, 'id');
+        $user->blocked = Typer::bool($dynamicArray, 'id');
     }
-    
+
     /**
      * @Revs(10000)
      */
@@ -53,9 +54,9 @@ class TestBench extends TestCase
 
         $user = new User();
         $user->id = isset($dynamicArray['id']) ? (int)$dynamicArray['id'] : null;
-        $user->email = isset($dynamicArray['email']) ? (string)$dynamicArray['email'] : null;
-        $user->balance = isset($dynamicArray['balance']) ? (float)$dynamicArray['balance'] : null;
-        $user->blocked = isset($dynamicArray['blocked']) ? ($dynamicArray['blocked'] === 'true' ? true : false) : null;
+        //$user->email = isset($dynamicArray['email']) ? (string)$dynamicArray['email'] : null;
+        //$user->balance = isset($dynamicArray['balance']) ? (float)$dynamicArray['balance'] : null;
+        //$user->blocked = isset($dynamicArray['blocked']) ? ($dynamicArray['blocked'] === 'true' ? true : false) : null;
 
     }
 }

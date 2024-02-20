@@ -1,6 +1,6 @@
 {
   "name": "yzen.dev/typer",
-  "version": "0.1",
+  "version": "0.2",
   "description": "Get property from dynamic instance",
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -25,10 +25,7 @@
   "autoload": {
     "psr-4": {
       "YzendDev\\Typer\\": "src/"
-    },
-    "files": [
-      "src/helper.php"
-    ]
+    }
   },
   "autoload-dev": {
     "psr-4": {

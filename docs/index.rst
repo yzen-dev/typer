@@ -28,15 +28,15 @@ When using **Typer**, you don't need to worry about a lot of checks and transfor
 
 ```php
 $user = new User();
-$user->id = typer($dynamicArray)->int('id');
-$user->email = typer($dynamicArray)->string('email');
-$user->balance = typer($dynamicArray)->float('balance');
-$user->blocked = typer($dynamicArray)->bool('blocked');
+$user->id = Typer::int($dynamicArray, 'id');
+$user->email = Typer::string($dynamicArray, 'email');
+$user->balance = Typer::float($dynamicArray, 'balance');
+$user->blocked = Typer::bool($dynamicArray, 'blocked');
 ```
 
 If, in the absence of a parameter, you need to specify a default value other than "null", you can simply pass it as the second argument:
 ```php
-$user->balance = typer($dynamicArray)->float('balance', null);
+$user->balance = Typer::float($dynamicArray, 'balance', 0.0);
 ```
 ## **Installation**
 
