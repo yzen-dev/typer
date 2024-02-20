@@ -2,6 +2,9 @@
 
 namespace YzendDev\Typer;
 
+/**
+ * @psalm-api
+ */
 class Typer
 {
     /**
