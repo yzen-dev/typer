@@ -2,8 +2,6 @@
 ![Packagist Version](https://img.shields.io/packagist/v/yzen.dev/typer?color=blue&label=version)
 ![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/yzen-dev/typer/tests.yml?branch=master)
 [![Coverage](https://codecov.io/gh/yzen-dev/typer/branch/master/graph/badge.svg?token=QAO8STLPMI)](https://codecov.io/gh/yzen-dev/typer)
-![License](https://img.shields.io/github/license/yzen-dev/typer)
-![readthedocs](https://img.shields.io/readthedocs/typer)
 ![Packagist Downloads](https://img.shields.io/packagist/dm/yzen.dev/typer)
 ![Packagist Downloads](https://img.shields.io/packagist/dt/yzen.dev/typer)
 
@@ -34,7 +32,7 @@ $user->blocked = Typer::bool($dynamicArray, 'blocked');
 
 If, in the absence of a parameter, you need to specify a default value other than "null", you can simply pass it as the second argument:
 ```php
-$user->balance = Typer::float($dynamicArray, 'balance', 0.0);
+$user->balance = Typer::float($dynamicArray, 'balance', 10.0);
 ```
 ## **Installation**
 
