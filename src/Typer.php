@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace YzendDev\Typer;
 
 /**
@@ -64,11 +66,12 @@ class Typer
     /**
      * Get array value of a property  from the underlying object or default (null)
      *
-     * @param null|array<array-key, mixed>|object $value
+     * @param null|array<array-key, array<T>>|object $value
      * @param string $key
-     * @param null|array $default Default value if the property does not exist
+     * @param null|array<mixed> $default Default value if the property does not exist
      *
-     * @return int|null
+     * @return null|array<T>
+     * @template T
      * @psalm-api
      */
     public static function array($value, string $key, array $default = null): ?array
