@@ -1,6 +1,6 @@
 {
   "name": "yzen.dev/typer",
-  "version": "0.2",
+  "version": "0.2.1",
   "description": "Get property from dynamic instance",
   "minimum-stability": "dev",
   "prefer-stable": true,

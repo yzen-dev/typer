@@ -20,9 +20,9 @@ class Typer
     public static function string($value, string $key, string $default = null): ?string
     {
         if (is_object($value)) {
-            return isset($value->{$key}) ? (string)$value->{$key} : $default;
+            return isset($value->{$key}) && !empty($value->{$key}) ? (string)$value->{$key} : $default;
         }
-        return isset($value[$key]) ? (string)$value[$key] : $default;
+        return isset($value[$key]) && !empty($value[$key]) ? (string)$value[$key] : $default;
     }
 
     /**
@@ -38,9 +38,9 @@ class Typer
     public static function float($value, string $key, float $default = null): ?float
     {
         if (is_object($value)) {
-            return isset($value->{$key}) ? (float)$value->{$key} : $default;
+            return isset($value->{$key}) && !empty($value->{$key}) ? (float)$value->{$key} : $default;
         }
-        return isset($value[$key]) ? (float)$value[$key] : $default;
+        return isset($value[$key]) && !empty($value[$key]) ? (float)$value[$key] : $default;
     }
 
     /**
@@ -56,9 +56,27 @@ class Typer
     public static function int($value, string $key, int $default = null): ?int
     {
         if (is_object($value)) {
-            return isset($value->{$key}) ? (int)$value->{$key} : $default;
+            return isset($value->{$key}) && !empty($value->{$key}) ? (int)$value->{$key} : $default;
         }
-        return isset($value[$key]) ? (int)$value[$key] : $default;
+        return isset($value[$key]) && !empty($value[$key]) ? (int)$value[$key] : $default;
+    }
+
+    /**
+     * Get array value of a property  from the underlying object or default (null)
+     *
+     * @param null|array<array-key, mixed>|object $value
+     * @param string $key
+     * @param null|array $default Default value if the property does not exist
+     *
+     * @return int|null
+     * @psalm-api
+     */
+    public static function array($value, string $key, array $default = null): ?array
+    {
+        if (is_object($value)) {
+            return isset($value->{$key}) && !empty($value->{$key}) ? $value->{$key} : $default;
+        }
+        return isset($value[$key]) && !empty($value[$key]) ? $value[$key] : $default;
     }
 
     /**
@@ -74,8 +92,8 @@ class Typer
     public static function bool($value, string $key, bool $default = null): ?bool
     {
         if (is_object($value)) {
-            return isset($value->{$key}) ? ($value->{$key} == 'true' ? true : false) : $default;
+            return isset($value->{$key}) && !empty($value->{$key}) ? ($value->{$key} == 'true' ? true : false) : $default;
         }
-        return isset($value[$key]) ? ($value[$key] == 'true' ? true : false) : $default;
+        return isset($value[$key]) && !empty($value[$key]) ? ($value[$key] == 'true' ? true : false) : $default;
     }
 }
